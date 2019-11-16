@@ -10,7 +10,7 @@
         {
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2018-08-01",
-            "name": "ignitedemoipaddress",
+            "name": "demoipaddress",
             "location": "[resourceGroup().location]",
             "tags": {
                 "displayName": "IPAddress1"
@@ -18,7 +18,7 @@
             "properties": {
                 "publicIPAllocationMethod": "Dynamic",
                 "dnsSettings": {
-                    "domainNameLabel": "ignitedemoipaddress"
+                    "domainNameLabel": "demoipaddress"
                 }
             }
         }
@@ -26,11 +26,11 @@
     "outputs": {
         "resourceID": {
             "type": "string",
-            "value": "[resourceId('Microsoft.Network/publicIPAddresses','ignitedemoipaddress')]"
+            "value": "[resourceId('Microsoft.Network/publicIPAddresses','demoipaddress')]"
           },
           "publicIP": {
             "type": "object",
-            "value" : "[reference('ignitedemoipaddress')]"
+            "value" : "[reference('demoipaddress')]"
           }
     }
 }

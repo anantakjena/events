@@ -4,14 +4,14 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
       "rgName":{
-        "value": "igniteDemoRG"
+        "value": "DemoRG"
       },
 
       "rgLocation":{
         "value": "West Europe"
       },
       "storageAccountName":{
-        "value": "ignitedemostorage02"
+        "value": "demostorage02"
       }
   
   

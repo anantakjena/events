@@ -6,7 +6,7 @@
     Invoke-Pester 
 .NOTES
     This file has been created as an example of using Pester to evaluate ARM templates
-    Source: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-automation-dsc
+
 #>
 
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -23,7 +23,7 @@ $location = "West Europe"
 
 Describe "Template: $template" -Tags Unit {
      BeforeAll {
-         New-AzureRmResourceGroup -Name $TempValidationRG -Location $Location
+         New-AzResourceGroup -Name $TempValidationRG -Location $Location
     }
 
     
@@ -54,8 +54,12 @@ Describe "Template: $template" -Tags Unit {
         
         It "Creates the expected Azure resources" {
             $expectedResources = 'Microsoft.Storage/storageAccounts',
+            'Microsoft.Automation/automationAccounts',
             'Microsoft.Network/virtualNetworks',
             'Microsoft.Network/publicIPAddresses',
+            'Microsoft.Compute/virtualMachineScaleSets',
+            'Microsoft.Insights/autoscaleSettings',
+            'Microsoft.Storage/storageAccounts',
             'Microsoft.Network/loadBalancers' | sort-object
             $templateResources = (get-content "$here\azuredeploy.json" | ConvertFrom-Json -ErrorAction SilentlyContinue).Resources.type | sort-object
             $templateResources | Should Be $expectedResources
@@ -71,12 +75,12 @@ Describe "Template: $template" -Tags Unit {
       
             # Complete mode - will deploy everything in the template from scratch. If the resource group already contains things (or even items that are not in the template) they will be deleted first.
             # If it passes validation no output is returned, hence we test for NullOrEmpty
-            $ValidationResult = Test-AzureRmResourceGroupDeployment -ResourceGroupName $TempValidationRG -Mode Complete -TemplateFile "$here\azuredeploy.json" -TemplateParameterFile "$here\azuredeploy.parameters.json"
+            $ValidationResult = Test-AzResourceGroupDeployment -ResourceGroupName $TempValidationRG -Mode Complete -TemplateFile "$here\azuredeploy.json" -TemplateParameterFile "$here\azuredeploy.parameters.json"
             $ValidationResult | Should BeNullOrEmpty
         }
     }
 
      AfterAll {
-         Remove-AzureRmResourceGroup $TempValidationRG -Force
+         Remove-AzResourceGroup $TempValidationRG -Force
      }
 }
