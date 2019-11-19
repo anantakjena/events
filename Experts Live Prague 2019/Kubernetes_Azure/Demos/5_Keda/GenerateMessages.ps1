@@ -1,3 +1,4 @@
+#! /usr/bin/pwsh
 param (
     [int]$count= 9 
 
