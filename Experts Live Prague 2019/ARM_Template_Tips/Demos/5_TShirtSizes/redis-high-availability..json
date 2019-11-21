@@ -120,6 +120,7 @@
             "arbiter": "Enabled",
             "vmTemplate": "[concat(variables('templateBaseUrl'), 'node-resources.json')]"
         },
+        "clusterSpec": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
         "osFamilyUbuntu": {
             "imagePublisher": "Canonical",
             "imageOffer": "UbuntuServer",
@@ -160,7 +161,6 @@
                 "version": "latest"
             }
         },
-        "clusterSpec": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
         "installCommand": "[concat('redis-cluster-install.sh -n ', parameters('redisClusterName'), ' -v ', parameters('redisVersion'), ' -c ', variables('clusterSpec').totalMemberCount, ' -m ', variables('clusterSpec').numberOfMasters, ' -s ', variables('clusterSpec').numberOfSlaves, ' -p ', variables('networkSettings').machineIpPrefix)]",
         "vmScripts": {
             "scriptsToDownload": [
