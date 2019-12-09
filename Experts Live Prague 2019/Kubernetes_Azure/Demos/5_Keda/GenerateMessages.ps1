@@ -1,4 +1,4 @@
-#! /usr/bin/pwsh
+
 param (
     [int]$count= 9 
 
@@ -11,6 +11,6 @@ $queue = Get-AzStorageQueue –Name $queueName –Context $ctx
 
 
 for($i=0; $i -lt $($count+1); $i++ ){
-    $queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" -ArgumentList "This is message $count"
+    $queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" -ArgumentList "This is message 1"
     $queue.CloudQueue.AddMessageAsync($QueueMessage)
 }
