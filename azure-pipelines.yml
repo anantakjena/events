@@ -15,3 +15,8 @@ steps:
   inputs:
     templatelocation: '$(System.DefaultWorkingDirectory)\Cloudbrew 2019\ARM Template Tips\Demos\4_NestedTemplates\3_configuration_nesting'
     resultLocation: '$(System.DefaultWorkingDirectory)\ARM-TTK.XML'
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'NUnit'
+    testResultsFiles: '$(System.DefaultWorkingDirectory)\ARM-TTK.XML'
+  condition: always()
