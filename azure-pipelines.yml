@@ -18,5 +18,5 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'NUnit'
-    testResultsFiles: '$(System.DefaultWorkingDirectory)\ARM-TTK.XML'
+    testResultsFiles: '$(System.DefaultWorkingDirectory)'
   condition: always()
