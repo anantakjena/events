@@ -13,7 +13,7 @@ pool:
 steps:
 - task: RunARMTTKTests@1
   inputs:
-    templatelocation: '$(System.DefaultWorkingDirectory)\Cloudbrew 2019\ARM Template Tips\Demos\4_NestedTemplates\3_configuration_nesting\*'
+    templatelocation: '$(System.DefaultWorkingDirectory)\Cloudbrew 2019\ARM Template Tips\Demos'
     resultLocation: '$(System.DefaultWorkingDirectory)'
 - task: PublishTestResults@2
   inputs:
