@@ -20,7 +20,7 @@
             "properties": {
               "mode": "Incremental",
               "templateLink": {
-                "uri": "[uri(deployment().properties.templateLink.uri, 'public-ip.json')]",
+                "uri": "https://raw.githubusercontent.com/sam-cogan/events/master/Global%20Azure%20Bootcamp%202020/Demos/4_NestedTemplates/1_simple_nested/IPAddress.json",
                 "contentVersion": "1.0.0.0"
               },
               "parameters":{
