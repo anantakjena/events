@@ -15,6 +15,7 @@ steps:
   inputs:
     templatelocation: '$(System.DefaultWorkingDirectory)\Cloudbrew 2019\ARM Template Tips\Demos'
     resultLocation: '$(System.DefaultWorkingDirectory)'
+    includeTests: 'VM Images Should Use Latest Version,Location Should Not Be Hardcoded'
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'NUnit'
