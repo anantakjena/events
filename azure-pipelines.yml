@@ -11,7 +11,7 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-- task: RunARMTTKTests@1
+- task: 12e695ee-1e9b-47f2-bc0a-3e4c726b2699@1
   inputs:
     templatelocation: '$(System.DefaultWorkingDirectory)\Cloudbrew 2019\ARM Template Tips\Demos'
     resultLocation: '$(System.DefaultWorkingDirectory)'
