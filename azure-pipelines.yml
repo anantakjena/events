@@ -13,7 +13,7 @@ pool:
 steps:
 - task: 12e695ee-1e9b-47f2-bc0a-3e4c726b2699@1
   inputs:
-    templatelocation: '$(System.DefaultWorkingDirectory)\Cloudbrew 2019\ARM Template Tips\Demos\*.json'
+    templatelocation: '$(System.DefaultWorkingDirectory)\Cloudbrew 2019\ARM Template Tips\Demos\1_Functions\*.json'
     resultLocation: '$(System.DefaultWorkingDirectory)'
 - task: PublishTestResults@2
   inputs:
