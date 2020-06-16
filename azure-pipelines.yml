@@ -13,9 +13,8 @@ pool:
 steps:
 - task: 12e695ee-1e9b-47f2-bc0a-3e4c726b2699@1
   inputs:
-    templatelocation: '$(System.DefaultWorkingDirectory)\Cloudbrew 2019\ARM Template Tips\Demos'
+    templatelocation: '$(System.DefaultWorkingDirectory)\Cloudbrew 2019\ARM Template Tips\Demos\*.json'
     resultLocation: '$(System.DefaultWorkingDirectory)'
-    includeTests: ' VM Images Should Use Latest Version '
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'NUnit'
